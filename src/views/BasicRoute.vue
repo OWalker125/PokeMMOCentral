@@ -529,7 +529,7 @@ import RegionAdvisor from '@/components/RegionAdvisor.vue'
           alt="mapa marcando saffron" 
           src="@/assets/images/routes/Saffron.png"
         />
-        <h2>Puzzle: Direita-> Baixo-> Esquerda-> Esquerda</h2>
+        <h2>Puzzle: ↖  ↙  ↓</h2>
         <h2>
           Entre com<br />
           <PokeNameImg pokeName="typhlosion" pokeType="fire" /> e
