@@ -19,6 +19,9 @@ import {
 } from '@/scripts/LocatorDex'
 import Encounters from '@/datasets/PokeRoutes.json'
 
+import Dialog from '@/components/Dialog.vue'
+import { ref } from 'vue'
+
 function toEnum<E>(enumObj: E, value: string): E[keyof E] {
   return enumObj[value as keyof E]
 }
@@ -74,8 +77,10 @@ function parseRoute(data: any): Route {
 }
 
 const routes: Route[] = Encounters.map(parseRoute)
+var showDialog = ref(false);
 
 function click(teste: Hotspot, region: string) {
+  showDialog.value = true
   for (let route of routes) {
     for (let testeName of teste.name) {
       if (route.name == testeName) {
@@ -85,6 +90,7 @@ function click(teste: Hotspot, region: string) {
     }
   }
 }
+
 </script>
 
 <template>
@@ -107,6 +113,10 @@ function click(teste: Hotspot, region: string) {
           }"
           @click="click(spot, 'kanto')"
         ></div>
+        <Dialog v-model="showDialog">
+          <h2>Título do diálogo</h2>
+          <p>Alguma informação importante.</p>
+        </Dialog>
       </div>
       <h2 class="city-title johto">Johto:</h2>
       <div class="map-box">
